@@ -8,15 +8,18 @@ value = True
 
 
 class Player:
-    def __init__(self, exp, health, bounty):
+    def __init__(self, exp, health, bounty, name):
         self.exp = exp
         self.health = health
         self.bounty = bounty
         self.item = []
         self.game = True
+        self.name = name
 
 
-player1 = Player(exp=0, health=10, bounty=0)
+player_name = input('Welcome to our adventure game. Please enter a name for your character ')
+
+player1 = Player(exp=0, health=10, bounty=0, name=player_name)
 
 level_1(player1)
 
