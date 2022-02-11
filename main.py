@@ -26,6 +26,8 @@ level_1(player1)
 if player1.game:
     level_2(player1)
 
+print(player1.game)
+
 if player1.game:
     level_3(player1)
 
