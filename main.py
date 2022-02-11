@@ -15,6 +15,7 @@ class Player:
         self.item = []
         self.game = True
         self.name = name
+        self.user_input = ''
 
 
 player_name = input('Welcome to our adventure game. Please enter a name for your character ')
