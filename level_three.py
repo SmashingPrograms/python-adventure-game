@@ -3,8 +3,6 @@
 import random
 
 def level_3(player1):
-    global user_input
-    user_input = ''  # global for the team
 
     global battle_success
     battle_success = 0
@@ -27,7 +25,7 @@ def level_3(player1):
     def user_choice():  # global for the team
         global user_input
         user_input = input(
-            'What do you choose? A, B, or C? Pick carfully').upper()
+            'What do you choose? A, B, or C? Pick carefully').upper()
 
     def fight_mechanic(num):
         battle_result = random.randint(1, num)
@@ -46,33 +44,38 @@ def level_3(player1):
               player1.name, 'is thirsty. Will you (A)(choose a drink), (B)(continue to see what other things are to be found), or (C)(see if you can take some coin from the tavern?')
         user_choice()
 
+        enter_python(player1)
+
         if user_input == 'A':
             print(
                 player1.name, ' grab a drink, and hear about an emience treasure directly North of the tavern')
             player1.health -= 5
+            print(player1.name, 'heads out of the tavern, what will',
+              player1.name, 'do next?')
+            enter_python(player1)
         elif user_input == 'B':
             print(player1.name,
                   'travels Northwards in search for this eminence treasure')
         elif user_input == 'C':
             print(player1.name, 'heads into the tavern for some coin!!!!')
 
-    while user_input == 'A':
-        print(player1.name, 'heads out of the tavern, what will',
-              player1.name, 'do next?')
-        enter_python(player1)
+    # while user_input == 'A':
+    #     print(player1.name, 'heads out of the tavern, what will',
+    #           player1.name, 'do next?')
+    #     enter_python(player1)
 
-    while user_input == 'C':
-        print(player1.name,
-              'senses wealth in this establishment and decides to attempt to steal!!')
-        user_choice()
-        fight_mechanic(2) 
-        fight_mechanic(2)
-        if battle_success == 2:
-            print(player1.name, 'successful stole some coin')
-            change_bounty(3)
-            battle_success = 0
-        else: 
-            print(player1.name, 'was unsuccessful, and was kick out by the bartender that say Ne!! Into a dark nasty bog')
-            battle_success = 0
+    # while user_input == 'C':
+    #     print(player1.name,
+    #           'senses wealth in this establishment and decides to attempt to steal!!')
+    #     user_choice()
+    #     fight_mechanic(2) 
+    #     fight_mechanic(2)
+    #     if battle_success == 2:
+    #         print(player1.name, 'successful stole some coin')
+    #         change_bounty(3)
+    #         battle_success = 0
+    #     else: 
+    #         print(player1.name, 'was unsuccessful, and was kick out by the bartender that say Ne!! Into a dark nasty bog')
+    #         battle_success = 0
 
 
