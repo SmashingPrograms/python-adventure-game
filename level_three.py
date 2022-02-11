@@ -17,9 +17,9 @@ def level_3(player1):
         player1.exp += experience
 
     global world_items
-    world_items = {'Cow': change_health(-5),
-                   'Limbs': change_health(10),
-                   'Crown': change_bounty(30),
+    world_items = {'Cow': -5,
+                   'Limbs': 10,
+                   'Crown': 30,
                    }
 
     def user_choice():  # global for the team
@@ -88,9 +88,26 @@ def level_3(player1):
         print('(A)(West), (B)(North)')
         user_choice()
 
-    
     if user_input == 'A':
+        print(player1.name, 'heads into the mysterious fog, they come across castle. The castle seems deserted./n')
+        if player1.exp < 50:
+            print('After a long examination', player1.name, 'finds nothing and continues through the fox')
+            user_input = 'B'
+        elif player1.bounty > 50:
+            print(player1.name, 'yells out, and peaking over the top of the castle a group of french soliders appear, knowing who', player1.name, 'is they scream be gone thief. The french throw over the wall and it lands next to', player1.nam, player1.name, 'runs way from the french not wishing more cow!!!!!!', player1.name, 'find that they are completely surroned by the bog found before and continue on through the dark, stinky waters\n')
+            player1.item.append('Cow')
+            change_health(world_items['Cow'])
+            user_input = 'B'
+        else:
+            print(player1.name, 'yells out, and peaking over the top of the castle a group of french soliders appear. Not knowing who', player1.name, 'is they yell to continue on as visitors are not welcome here!! As', player1.name, 'continues on they run find that they are completely surroned by the bog found before and continue on through the dark, stinky waters\n')
+            change_bounty(-5)
+            user_input = 'B'
+    
+
+    if user_input == 'B':
         print('hi')
+
+
         
 
 
