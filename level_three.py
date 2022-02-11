@@ -1,6 +1,5 @@
 import random
 
-
 def level_3(player1):
     global user_input
     user_input = ''  # global for the team
@@ -24,7 +23,8 @@ def level_3(player1):
                    }
 
     def user_choice():  # global for the team
-        user_input = print(
+        global user_input
+        user_input = input(
             'What do you choose? A, B, or C? Pick carfully').upper()
 
     def fight_mechanic(num):
@@ -34,6 +34,8 @@ def level_3(player1):
             print('YOU HAVE LOST YOUR HEAD, YOU ARE DEAD!!')
         elif battle_result == 2:
             print('Hit!')
+            global battle_success
+            battle_success += 1
         else:
             print(player1.name, 'have been slapped for being a horrible thief!')
 
@@ -57,10 +59,18 @@ def level_3(player1):
               player1.name, 'do next?')
         enter_python(player1)
 
-    while user_input == 'B':
-        print(player1.name,
-              'senses wealth in this establishment will you choose to steal?')
-        fight_mechanic(2) * 2
-
     while user_input == 'C':
-        print('hi')
+        print(player1.name,
+              'senses wealth in this establishment and decides to attempt to steal!!')
+        user_choice()
+        fight_mechanic(2) 
+        fight_mechanic(2)
+        if battle_success == 2:
+            print(player1.name, 'successful stole some coin')
+            change_bounty(3)
+            battle_success = 0
+        else: 
+            print(player1.name, 'was unsuccessful, and was kick out by the bartender that say Ne!! Into a dark nasty bog')
+            battle_success = 0
+
+

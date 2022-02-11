@@ -30,7 +30,7 @@ if player1.game:
     level_3(player1)
 
 if player1.game:
-    level_4(player1)
+    level_4(player1) 
 
 if player1.game:
     level_5(player1)
