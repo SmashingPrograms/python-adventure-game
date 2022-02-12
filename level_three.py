@@ -1,6 +1,7 @@
 # DANIEL
 
 from cgi import print_environ_usage
+from ctypes.wintypes import WORD
 import random
 from tkinter.tix import Balloon
 
@@ -22,8 +23,9 @@ def level_3(player1):
 
     global world_items
     world_items = {'Cow': -5,
-                   'Limbs': 10,
+                   'Limbs': -10,
                    'Crown': 30,
+                   'Grail': 50,
                    }
 
     global combat_steps
@@ -35,7 +37,7 @@ def level_3(player1):
         'king_damange': 'HOW DARE YOU ATTACK ME, FOR I AM KING ARUTHER OF THE ROUND TABLE, AND MY KNIGHTS SHALL DO DAMAGE TO YOU. NI!'
     }
 
-    def player_health(player1):
+    def player_health():
         if player1.health == 0:
             exit
 
@@ -46,7 +48,7 @@ def level_3(player1):
     def fight_mechanic(num):
         battle_result = random.randint(1, num)
         if battle_result == 3:
-            player1.health = 0
+            player_health()
             print(combat_steps['die'])
         elif battle_result == 2:
             print(combat_steps['enemy_damage'])
@@ -67,7 +69,7 @@ def level_3(player1):
 
     print(player1.name, 'pops out of the pipe......where an I!', player1.name,
           'look out and see a tavern.', player1.name, 'is thirsty\n')
-    enter_python(player1)
+    enter_python()
 
     if player1.user_input == 'A':
         print(
@@ -83,7 +85,7 @@ def level_3(player1):
     while player1.user_input == 'A':
         print(player1.name, 'heads out of the tavern, what will',
               player1.name, 'do next?\n')
-        enter_python(player1)
+        enter_python()
 
     while player1.user_input == 'C':
         print(player1.name,
@@ -92,7 +94,7 @@ def level_3(player1):
         fight_mechanic(2)
         if battle_success == 2:
             print(player1.name, 'successful stole some coin\n')
-            change_bounty(3)
+            change_bounty(2)
             battle_success = 0
             break
         else:
@@ -132,16 +134,16 @@ def level_3(player1):
 
     if player1.user_input == 'B':
         change_exp(5)
-        print('As', player1.name, 'eventually find the other side of the bog. King Authr is waiting to destory', player1.name, 'they must being getting close the the great spoils. King Arthur challenges you to a duel!!!!\n')
-        king_fight()
+        print('As', player1.name, 'eventually find the other side of the bog. King Author is waiting to destory', player1.name, 'they must being getting close the the great spoils. King Arthur challenges you to a duel!!!!\n')
+        king_fight(player1)
 
     if player1.user_input == 'A':
         change_health(-5)
         change_exp(5)
-        king_fight()
+        king_fight(player1)
 
     elif player1.user_input == 'C':
-        player1.health = 0
+        player_health()
         print(combat_steps['die'])
         player1.game = False
     else:
@@ -150,6 +152,7 @@ def level_3(player1):
             fight_counter += 1
             if battle_success == 1:
                 print(combat_steps['king_damange'])
+
 
         while fight_counter == 4:
             fight_mechanic(3)
@@ -160,13 +163,37 @@ def level_3(player1):
                 player_health()
 
     fight_counter = 0
-    print('After an exhausting battle between', player1.name, 'and King Authur. With an amazing strike of the rusty sword', player1.name, 'lands a deadly strike on the King, who falls to his death yelling one last NI!')
+    print('After an exhausting battle between', player1.name, 'and King Authur. With an amazing strike of the rusty sword', player1.name, 'lands a deadly strike on the King, who falls to his death yelling one last NI!\n')
     change_exp(20)
-    change_bounty(10)
+    player1.item.append('Crown')
+    change_bounty(world_items['Crown'])
 
     #Bunny section
+    print('After the battle with the King', player1.name, 'proceeds through a barren plans. Until in the distance they see a cave. Could this be the resting place of the treasure they are in search for?\n')
+    print('(A)(Yes), (B)(Yes), (C)(......yes)')
+    user_choice()
+    print('As', player1.name, 'approaches the out jumps a super bunny with a love for limbs!!', player1.name,'knows this must be the final boss of this world and the protector of the treasure.\n')
+    print('How will they choose to proceed? (A)(Head bravely into battle,(B)(Head fearfully into battle,(C)faint!......do not do this!!! ')
 
+    if player1.user_input == 'C':
+        print('I told you not to do this!', player1.name, 'fell when they fainted and hit their head on rock. They are now dead')
+        player_health()
+    elif player1.user_input == 'B':
+        while fight_counter < 3:
+            fight_mechanic(3)
+            fight_counter += 1
+    else:
+        while fight_counter < 2:
+            fight_mechanic(3)
+            fight_counter += 1
+    
+    print(player1.name, 'has successfully beat the bunny. As they look up, there it is. Can it be!!! A golden cup!! the Holy Grail!!!! This find will surely make', player1.name, 'the most famous individual in the world!! We shall see!')
+    player1.item.append('Grail')
+    change_bounty(world_items['Grail'])
+    change_exp(world_items['Grail'])
+    change_health(world_items['Grail'])
     
 
     #End section
 
+    
