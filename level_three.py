@@ -1,6 +1,8 @@
 # DANIEL
 
+from cgi import print_environ_usage
 import random
+from tkinter.tix import Balloon
 
 
 def level_3(player1):
@@ -32,6 +34,10 @@ def level_3(player1):
         'bunny_damage': 'BUNNY NOISES',
         'king_damange': 'HOW DARE YOU ATTACK ME, FOR I AM KING ARUTHER OF THE ROUND TABLE, AND MY KNIGHTS SHALL DO DAMAGE TO YOU. NI!'
     }
+
+    def player_health(player1):
+        if player1.health == 0:
+            exit
 
     def user_choice():  # global for the team
         player1.user_input = input(
@@ -137,19 +143,30 @@ def level_3(player1):
     elif player1.user_input == 'C':
         player1.health = 0
         print(combat_steps['die'])
+        player1.game = False
     else:
-        print('hi')
-
-
-        while fight_counter < 3:
+        while fight_counter < 4:
             fight_mechanic(2)
             fight_counter += 1
+            if battle_success == 1:
+                print(combat_steps['king_damange'])
 
-        while fight_counter < 5 and fight_counter > 3:
+        while fight_counter == 4:
             fight_mechanic(3)
             fight_counter += 1
+            if battle_success == 1:
+                print(combat_steps['king_damange'])
+            elif battle_success == 3:
+                player_health()
+
+    fight_counter = 0
+    print('After an exhausting battle between', player1.name, 'and King Authur. With an amazing strike of the rusty sword', player1.name, 'lands a deadly strike on the King, who falls to his death yelling one last NI!')
+    change_exp(20)
+    change_bounty(10)
 
     #Bunny section
+
+    
 
     #End section
 
