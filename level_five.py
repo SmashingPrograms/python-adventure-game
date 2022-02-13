@@ -23,7 +23,7 @@ def level_5(player):
             'prompt_label': 'intro',
             'prompt': "You walk into a small village. This village is loaded. Like really loaded. Everyone knows this village bank keeps tons of jewels on hand and you're going to relieve them of their burden.\n As you make your way to the bank, you feel like everyone in town is watching you, but you can't seem to catch anyone in the act. You walk by the doorway of the bank and see several men loitering outside...", 'options': ["A) You head into the bank, as planned.", "B) You keep walking, maybe this isn't the right moment"]
          },{
-             'prompt_label': 'alley',
+            'prompt_label': 'alley',
             'prompt': "You walk by the bank and around the corner, right into the hands of 5 waiting men. The men throw a bag over your head.",
             'options': ['A) Headbutt the nearest man. ', "B) Attempt to run even though you can't see"]
         },{
@@ -43,8 +43,8 @@ def level_5(player):
             'prompt_label': 'run',
             'prompt': "You run headfirst into a brick wall. You immediately blackout."
          },{
-             'prompt_label': 'jail',
-            'prompt': f"Someone rips the bag off of your head. You're sitting in a small, windowless room. Your arms are tied to the chair. You see the contents of your journey spread out before you on the table. Your {get_items()}. A man is sitting across from you at the table. ", 'options': ["A) Get into a staring contest with the man.", "B) Try to break the ropes"]
+            'prompt_label': 'jail',
+            'prompt': f"Someone rips the bag off of your head. You find yourself sitting in a small, windowless room. Your arms are tied to the chair. You see the contents of your journey spread out before you on the table. Your {get_items()}. A man is sitting across from you at the table. ", 'options': ["A) Get into a staring contest with the man.", "B) Try to break the ropes"]
          },{
             'prompt_label': 'staring_contest',
             'prompt': "You attempt the beat the man in a staring contest. You win, but your eyes are now watering. You lose 5 health."
@@ -64,11 +64,11 @@ def level_5(player):
         }, {
             'prompt_label': 'mother_fail', 'prompt': "The man doesn't buy it. Since you just guessed your own mother turned you in, the ploy fails and you realize with growing horror that you will have to spend the rest of your life in jail. But, at least you'll never have to see your mother again, the traitor."
         }, {
-            'prompt_label': 'mother_exp_fail', 'prompt': "Your experience isn't high enough. The man doesn't buy it and you realize with growing horror that you will have to spend the rest of your life in jail. But, at least you'll never have to see your mother again, the traitor."
+            'prompt_label': 'mother_exp_fail', 'prompt': "Your experience isn't high enough. The man doesn't buy it and you realize with growing horror that you will have to spend the rest of your life in jail. Your only regret is that you didn't steal more along the way. Maybe if you had, you'd have escaped."
         }, {
             'prompt_label': 'mother_success', 'prompt': "Your experience is high enough that the man believes you. It helps that the sketch artist never got your nose quite right. The man unties you and says you can go. You leave the jailhouse with no regets for your life of crime, but deep down you know you'll never truly repair your relationship with your mother. "
         }, {
-            'prompt_label': 'rope_fail', 'prompt': "You try to untie the knot, but, unfortunately, you made it too tight when you tried to break the ropes earlier. You can't untie them. You start to realize that you'll spend the rest of your life in jail. You have no regrets, except maybe pulling the ropes earlier. "
+            'prompt_label': 'rope_fail', 'prompt': "You try to untie the knot, but, unfortunately, you made it too tight when you tried to break the ropes earlier. You can't untie them. You start to realize that you'll spend the rest of your life in jail. You have no regrets, except maybe pulling on the ropes earlier. "
         }, {
             'prompt_label': 'rope_exp_fail', 'prompt': "You try to untie the rope, but unfortunately your experience isn't high enough and the man notices what you're doing. The man walks over, tightens the ropes, and you realize that you're going to jail for the rest of your life. Your only regret is that you didn't steal more along the way. Maybe if you had, you'd have escaped."
         }, {
