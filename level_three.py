@@ -2,6 +2,7 @@
 
 import random
 
+
 def level_3(player1):
 
     global battle_success
@@ -75,20 +76,21 @@ def level_3(player1):
             player1.name, ' grab a drink, and hear about an emience treasure directly North of the tavern\n')
         change_health(-5)
         change_exp(1)
-        print(player1.name, 'heads out of the tavern, and heads North to find eminence treasure\n')      
+        print(player1.name,
+              'heads out of the tavern, and heads North to find eminence treasure\n')
     elif player1.user_input == 'B':
         print(player1.name,
               'travels Northwards in search for  eminence treasure\n')
     elif player1.user_input == 'C':
         print(player1.name, 'heads into the tavern for some coin!!!!\n')
-    
 
     while player1.user_input == 'C':
         print(player1.name,
               'senses wealth in this establishment and decides to attempt to steal!!\n')
         fight_mechanic(2)
         if battle_result == 2:
-            print(player1.name, 'successfully stole some coin, and run into a dark nasty bog\n')
+            print(
+                player1.name, 'successfully stole some coin, and run into a dark nasty bog\n')
             change_bounty(2)
             battle_success = 0
             break
@@ -104,7 +106,7 @@ def level_3(player1):
             player1.user_input = 'B'
         else:
             print('As', player1.name, 'heads north', player1.name,
-                'finds a bog! To the East as impenetrable mountains, to the west there is a mystrious fog, which direction will', player1.name, ' go?\n')
+                  'finds a bog! To the East as impenetrable mountains, to the west there is a mystrious fog, which direction will', player1.name, ' go?\n')
             print('(A)(West), (B)(North)')
             user_choice()
 
@@ -112,17 +114,17 @@ def level_3(player1):
             print(player1.name, 'heads into the mysterious fog, they come across castle. The castle seems deserted./n')
             if player1.exp < 50:
                 print('After a long examination', player1.name, 'finds nothing and continues through the fog', player1.name,
-                    'finds that they are completely surronded by the bog found before and continue on through the dark, stinky waters\n')
+                      'finds that they are completely surronded by the bog found before and continue on through the dark, stinky waters\n')
                 player1.user_input = 'B'
             elif player1.bounty > 50:
                 print(player1.name, 'yells out, and peaking over the top of the castle a group of french soliders appear, knowing who', player1.name, 'is they scream BE GOND THIEF!!. The french throw a dead cow over the wall and it lands next to',
-                    player1.name,'!', player1.name, 'runs way from the french not wishing more cows!!!!!!', player1.name, 'finds that they are completely surroned by the bog found before and continue on through the dark, stinky waters\n')
+                      player1.name, '!', player1.name, 'runs way from the french not wishing more cows!!!!!!', player1.name, 'finds that they are completely surroned by the bog found before and continue on through the dark, stinky waters\n')
                 player1.item.append('Cow')
                 change_health(world_items['Cow'])
                 player1.user_input = 'B'
             else:
                 print(player1.name, 'yells out, and peaking over the top of the castle a group of french soliders appear. Not knowing who', player1.name, 'is they yell to continue on as visitors are not welcome here!! As',
-                    player1.name, 'continues on they run finds that they are completely surroned by the bog found before and continue on through the dark, stinky waters\n')
+                      player1.name, 'continues on they run finds that they are completely surroned by the bog found before and continue on through the dark, stinky waters\n')
                 change_bounty(-5)
                 player1.user_input = 'B'
 
@@ -131,14 +133,16 @@ def level_3(player1):
         if player1.user_input == 'B':
             change_exp(5)
             print('As', player1.name, 'eventually find the other side of the bog. King Author is waiting to destory',
-                player1.name, 'they must being getting close to the great spoils. King Arthur challenges you to a duel!!!!\n')
+                  player1.name, 'they must being getting close to the great spoils. King Arthur challenges you to a duel!!!!\n')
             king_fight(player1)
 
         if player1.user_input == 'A':
-            print(player1.name, 'lose health, but gains insight to help in the upcoming battle again King Author')
+            print(
+                player1.name, 'lose health, but gains insight to help in the upcoming battle again King Author')
             change_health(-5)
             change_exp(5)
-            print('After preparing themselves', player1.name, 'charges at the King, ready for their fate!!')
+            print('After preparing themselves', player1.name,
+                  'charges at the King, ready for their fate!!')
 
         elif player1.user_input == 'C':
             player_health()
@@ -158,32 +162,31 @@ def level_3(player1):
                     print(combat_steps['king_damange'])
                 elif battle_result == 3:
                     player_health()
-                    
 
-        fight_counter = 0  
+        fight_counter = 0
         if player1.game == False:
-            break      
+            break
 
         print('After an exhausting battle between', player1.name, 'and King Authur. With an amazing strike of the rusty sword',
-            player1.name, 'lands a deadly strike on the King, who falls to his death yelling one last NI!\n')
+              player1.name, 'lands a deadly strike on the King, who falls to his death yelling one last NI!\n')
         change_exp(20)
         player1.item.append('Crown')
         change_bounty(world_items['Crown'])
 
         # Bunny section
         print('After the battle with the King,', player1.name,
-            'proceeds through a barren plans. Until in the distance they see a cave. Could this be the resting place of the treasure they are in search for?\n')
+              'proceeds through a barren plans. Until in the distance they see a cave. Could this be the resting place of the treasure they are in search for?\n')
         print('(A)(Yes), (B)(Yes), (C)(......yes)')
         user_choice()
 
         print('As', player1.name, 'approaches the cave out jumps a super bunny with a love for limbs!!',
-            player1.name, 'knows this must be the final boss of this world and the protector of the treasure.\n')
+              player1.name, 'knows this must be the final boss of this world and the protector of the treasure.\n')
         print('How will they choose to proceed? (A)(Head bravely into battle,(B)(Head fearfully into battle,(C)faint!......do not do this!!! ')
         user_choice()
 
         if player1.user_input == 'C':
             print('I told you not to do this!', player1.name,
-                'fell when they fainted and hit their head on rock. They are now dead')
+                  'fell when they fainted and hit their head on rock. They are now dead')
             player_health()
         elif player1.user_input == 'B':
             while fight_counter < 3:
@@ -201,10 +204,10 @@ def level_3(player1):
                     print(combat_steps['bunny_damage'])
 
         if player1.game == False:
-            break 
+            break
 
         print(player1.name, 'has successfully beat the bunny. As they look up, there it is. Can it be!!! A golden cup!! the Holy Grail!!!! This find will surely make',
-            player1.name, 'the most famous individual in the world!! We shall see!')
+              player1.name, 'the most famous individual in the world!! We shall see!')
         player1.item.append('Grail')
         change_bounty(world_items['Grail'])
         change_exp(world_items['Grail'])
@@ -212,26 +215,27 @@ def level_3(player1):
 
         # End section
         print('As', player1.name,
-            'perpares to leave, the police show up and ask to talk with', player1.name, '\n')
+              'perpares to leave, the police show up and ask to talk with', player1.name, '\n')
         print(('(A)(Talk to the police), (B)(Do not talk to the police), (C)(Run!!)'))
         user_choice()
 
         if player1.user_input == 'A':
             if limb_status == True:
                 print('The police wish', player1.name,
-                    'the best of luck on their journey, and give them their limbs lost in the great battle with the bunny to take for future adventures')
+                      'the best of luck on their journey, and give them their limbs lost in the great battle with the bunny to take for future adventures')
                 player1.item.append('Limbs')
                 change_health(world_items['Limbs'])
                 change_exp(5)
             else:
                 print('The police wish', player1.name,
-                    'safe travels for their future adventures, off to the sunset they go\n')
+                      'safe travels for their future adventures, off to the sunset they go\n')
                 change_exp(5)
         elif player1.user_input == 'B':
             print('With questioning gaze the police question', player1.name,
-                'however not finding anything immediately susupious, let them go. Now off through the sunset', player1.name, 'goes\n')
+                  'however not finding anything immediately susupious, let them go. Now off through the sunset', player1.name, 'goes\n')
         else:
-            print('Scared', player1.name, 'runs into the sunset, the police take note')
+            print('Scared', player1.name,
+                  'runs into the sunset, the police take note')
             print(player1.bounty)
             change_bounty(5)
             print(player1.bounty)
