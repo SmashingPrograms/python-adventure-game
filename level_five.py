@@ -3,12 +3,14 @@
 def level_5(player):
 
     player.item.append('lint')
+    is_rope_tight = False
+    guessed_mother = False
+
+    #testing values
     # player.item.append('coins')
     # player.item.append('mask')
     # player.bounty = 20
     # player.exp = 30
-    is_rope_tight = False
-    guessed_mother = False
 
     def get_items():
         print(', '.join(player.item[:-1]))
