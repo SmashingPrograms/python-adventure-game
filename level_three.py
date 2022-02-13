@@ -11,6 +11,8 @@ def level_3(player1):
     global battle_success
     battle_success = 0
     fight_counter = 0
+    global limb_status
+    limb_status = False
 
     def change_health(num):  # global for the tea
         player1.health += num
@@ -46,6 +48,7 @@ def level_3(player1):
             'What do you choose? A, B, or C? Pick carefully ').upper()
 
     def fight_mechanic(num):
+        global battle_result
         battle_result = random.randint(1, num)
         if battle_result == 3:
             player_health()
@@ -91,8 +94,7 @@ def level_3(player1):
         print(player1.name,
               'senses wealth in this establishment and decides to attempt to steal!!\n')
         fight_mechanic(2)
-        fight_mechanic(2)
-        if battle_success == 2:
+        if battle_result == 2:
             print(player1.name, 'successful stole some coin\n')
             change_bounty(2)
             battle_success = 0
@@ -150,16 +152,15 @@ def level_3(player1):
         while fight_counter < 4:
             fight_mechanic(2)
             fight_counter += 1
-            if battle_success == 1:
+            if battle_result == 1:
                 print(combat_steps['king_damange'])
-
 
         while fight_counter == 4:
             fight_mechanic(3)
             fight_counter += 1
-            if battle_success == 1:
+            if battle_result == 1:
                 print(combat_steps['king_damange'])
-            elif battle_success == 3:
+            elif battle_result == 3:
                 player_health()
 
     fight_counter = 0
@@ -182,10 +183,14 @@ def level_3(player1):
         while fight_counter < 3:
             fight_mechanic(3)
             fight_counter += 1
+            if battle_result == 1:
+                limb_status = True
     else:
         while fight_counter < 2:
             fight_mechanic(3)
             fight_counter += 1
+            if battle_result == 1:
+                limb_status = True
     
     print(player1.name, 'has successfully beat the bunny. As they look up, there it is. Can it be!!! A golden cup!! the Holy Grail!!!! This find will surely make', player1.name, 'the most famous individual in the world!! We shall see!')
     player1.item.append('Grail')
@@ -193,7 +198,24 @@ def level_3(player1):
     change_exp(world_items['Grail'])
     change_health(world_items['Grail'])
     
-
     #End section
+    print('As', player1.name,'perpares to leave, the police show up and ask to talk with', player1.name,'\n')
+    print(('(A)(Talk to the police), (B)(Do not talk to the police), (C)(Run!!)'))
+    user_choice()
 
-    
+    if user_choice == 'A':
+        if limb_status == True:
+            print('The police wish', player1.name,'the best of luck on their journey, and give them their limbs lost in the great battle with the bunny to take for future adventures')
+            player1.items.append('Limbs')
+            change_health(world_items['Limbs'])
+            change_exp(5)
+        else:
+            print('The police wish', player1.name, 'safe travels for their future adventures, off to the sunset they go\n')
+            change_exp(5)
+    elif user_choice == 'B':
+        print('With questioning gaze the police question', player1.name,'however not finding anything immediately susupious, let them go. Now off to through the sunset', player1.name, 'goes\n')
+    else: 
+        print('Scared',player1.name,'runs into the sunset, the police take note')
+        change_bounty(5)
+
+
