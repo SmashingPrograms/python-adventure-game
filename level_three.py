@@ -1,9 +1,6 @@
 # DANIEL
-from cgi import print_environ_usage
-from ctypes.wintypes import WORD
-import random
-from tkinter.tix import Balloon
 
+import random
 
 def level_3(player1):
 
@@ -78,18 +75,13 @@ def level_3(player1):
             player1.name, ' grab a drink, and hear about an emience treasure directly North of the tavern\n')
         change_health(-5)
         change_exp(1)
-        enter_python
-        
+        print(player1.name, 'heads out of the tavern, and heads North to find eminence treasure\n')      
     elif player1.user_input == 'B':
         print(player1.name,
-              'travel Northwards in search for this eminence treasure\n')
+              'travels Northwards in search for  eminence treasure\n')
     elif player1.user_input == 'C':
         print(player1.name, 'heads into the tavern for some coin!!!!\n')
-
-    while player1.user_input == 'A':
-        print(player1.name, 'heads out of the tavern, what will',
-              player1.name, 'do next?\n')
-        enter_python()
+    
 
     while player1.user_input == 'C':
         print(player1.name,
@@ -146,7 +138,7 @@ def level_3(player1):
             print(player1.name, 'lose health, but gains insight to help in the upcoming battle again King Author')
             change_health(-5)
             change_exp(5)
-            king_fight(player1)
+            print('After preparing themselves', player1.name, 'charges at the King, ready for their fate!!')
 
         elif player1.user_input == 'C':
             player_health()
@@ -183,11 +175,11 @@ def level_3(player1):
             'proceeds through a barren plans. Until in the distance they see a cave. Could this be the resting place of the treasure they are in search for?\n')
         print('(A)(Yes), (B)(Yes), (C)(......yes)')
         user_choice()
-        player1.user_input = ''
 
         print('As', player1.name, 'approaches the cave out jumps a super bunny with a love for limbs!!',
             player1.name, 'knows this must be the final boss of this world and the protector of the treasure.\n')
         print('How will they choose to proceed? (A)(Head bravely into battle,(B)(Head fearfully into battle,(C)faint!......do not do this!!! ')
+        user_choice()
 
         if player1.user_input == 'C':
             print('I told you not to do this!', player1.name,
@@ -228,7 +220,7 @@ def level_3(player1):
             if limb_status == True:
                 print('The police wish', player1.name,
                     'the best of luck on their journey, and give them their limbs lost in the great battle with the bunny to take for future adventures')
-                player1.items.append('Limbs')
+                player1.item.append('Limbs')
                 change_health(world_items['Limbs'])
                 change_exp(5)
             else:
