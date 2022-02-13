@@ -22,16 +22,16 @@ player_name = input('Welcome to our adventure game. Please enter a name for your
 
 player1 = Player(exp=0, health=10, bounty=0, name=player_name)
 
-# level_1(player1)
+level_1(player1)
 
-# if player1.game:
-#     level_2(player1)
+if player1.game:
+    level_2(player1)
 
-# if player1.game:
-#     level_3(player1)
+if player1.game:
+    level_3(player1)
 
-# if player1.game:
-#     level_4(player1) 
+if player1.game:
+    level_4(player1) 
 
 if player1.game:
     level_5(player1)
