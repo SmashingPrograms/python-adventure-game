@@ -13,8 +13,6 @@ def level_5(player):
     # player.exp = 30
 
     def get_items():
-        print(', '.join(player.item[:-1]))
-        print(player.item[-1])
         printout = ', '.join(player.item[:-1]) + ', and ' + player.item[-1]
         return printout
 
@@ -152,8 +150,6 @@ def level_5(player):
     print_options(**get_option('escape_attempt'))
     get_user_input()
     if player.user_choice == 'A':
-        print(guessed_mother)
-        print(player.exp)
         if guessed_mother == True:
             print_options(**get_option('mother_fail'))
         elif player.exp < 30:
@@ -161,8 +157,6 @@ def level_5(player):
         else: 
             print_options(**get_option('mother_success'))
     if player.user_choice == 'B':
-        print(is_rope_tight)
-        print(player.exp)
         if is_rope_tight == True:
             print_options(**get_option('rope_fail'))
         elif player.exp < 30:
