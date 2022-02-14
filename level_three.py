@@ -67,7 +67,7 @@ def level_3(player1):
 
     # enter the world
 
-    print(player1.name, 'pops out of the pipe......where an I!', player1.name,
+    print(player1.name, 'pops out of the pipe......where am I!', player1.name,
           'looks out and sees a tavern.', player1.name, 'is thirsty\n')
     enter_python()
 
@@ -226,13 +226,13 @@ def level_3(player1):
         if player1.user_input == 'A':
             if limb_status == True:
                 print('The police wish', player1.name,
-                      'the best of luck on their journey, and give them their limbs lost in the great battle with the bunny to take for future adventures')
+                      'the best of luck on their journey, and give them their limbs lost in the great battle with the bunny to take for future adventures.', player1.name, 'goes off into the sunset')
                 player1.item.append('Limbs')
                 change_health(world_items['Limbs'])
                 change_exp(5)
             else:
                 print('The police wish', player1.name,
-                      'safe travels for their future adventures, off to the sunset they go\n')
+                      'safe travels for their future adventures, off to the sunset they go. \n')
                 change_exp(5)
         elif player1.user_input == 'B':
             print('With questioning gaze the police question', player1.name,
