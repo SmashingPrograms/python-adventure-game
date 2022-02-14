@@ -11,13 +11,13 @@ def level_3(player1):
     global limb_status
     limb_status = False
 
-    def change_health(num):  # global for the tea
+    def change_health(num):  
         player1.health += num
 
-    def change_bounty(bounty):  # global for the team
+    def change_bounty(bounty):  
         player1.bounty += bounty
 
-    def change_exp(experience):  # global for the team
+    def change_exp(experience):  
         player1.exp += experience
 
     global world_items
@@ -40,7 +40,7 @@ def level_3(player1):
         player1.health = 0
         player1.game = False
 
-    def user_choice():  # global for the team
+    def user_choice():  
         player1.user_input = input(
             'What do you choose? A, B, or C? Pick carefully ').upper()
 
