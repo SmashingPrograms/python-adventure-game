@@ -2,7 +2,7 @@
 
 def level_5(player):
 
-    player.item.append('lint')
+    player.item.append('lint from your pockets')
     is_rope_tight = False
     guessed_mother = False
 
@@ -13,7 +13,10 @@ def level_5(player):
     # player.exp = 30
 
     def get_items():
-        printout = ', '.join(player.item[:-1]) + ', and ' + player.item[-1]
+        if len(player.item) > 1:
+            printout = ', '.join(player.item[:-1]) + ', and ' + player.item[-1]
+        else:
+            printout = player.item[-1]
         return printout
 
     Prompts = [
@@ -85,10 +88,12 @@ def level_5(player):
                 break
             else:
                 print('Not a valid option. Please choose again. ')
+                print('________________________________________________')
                 continue
 
     def continue_input():
         player.user_choice = input('Press enter to continue').upper()
+        print('________________________________________________')
 
     def print_options(**kwargs):
         if 'prompt' in kwargs:
