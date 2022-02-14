@@ -107,7 +107,7 @@ def level_3(player1):
         else:
             print('As', player1.name, 'heads north', player1.name,
                   'finds a bog! To the East as impenetrable mountains, to the west there is a mystrious fog, which direction will', player1.name, ' go?\n')
-            print('(A)(West), (B)(North)')
+            print('(A)(West), (B)(North), (C)(Die)')
             user_choice()
 
         if player1.user_input == 'A':
@@ -195,6 +195,8 @@ def level_3(player1):
                 if battle_result == 1:
                     print(combat_steps['bunny_damage'])
                     limb_status = True
+                elif battle_result == 3:
+                    break
         else:
             while fight_counter < 2:
                 fight_mechanic(3)
@@ -202,6 +204,8 @@ def level_3(player1):
                 if battle_result == 1:
                     limb_status = True
                     print(combat_steps['bunny_damage'])
+                elif battle_result == 3:
+                    break
 
         if player1.game == False:
             break
@@ -239,3 +243,4 @@ def level_3(player1):
             print(player1.bounty)
             change_bounty(5)
             print(player1.bounty)
+        break
