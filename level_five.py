@@ -6,12 +6,6 @@ def level_5(player):
     is_rope_tight = False
     guessed_mother = False
 
-    #testing values
-    # player.item.append('coins')
-    # player.item.append('mask')
-    # player.bounty = 20
-    # player.exp = 30
-
     def get_items():
         if len(player.item) > 1:
             printout = ', '.join(player.item[:-1]) + ', and ' + player.item[-1]
@@ -157,14 +151,14 @@ def level_5(player):
     if player.user_choice == 'A':
         if guessed_mother == True:
             print_options(**get_option('mother_fail'))
-        elif player.exp < 30:
+        elif player.exp < 75:
             print_options(**get_option('mother_exp_fail'))
         else: 
             print_options(**get_option('mother_success'))
     if player.user_choice == 'B':
         if is_rope_tight == True:
             print_options(**get_option('rope_fail'))
-        elif player.exp < 30:
+        elif player.exp < 75:
             print_options(**get_option('rope_exp_fail'))
         else:
             print_options(**get_option('rope_success'))
