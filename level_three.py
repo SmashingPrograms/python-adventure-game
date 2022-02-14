@@ -138,7 +138,7 @@ def level_3(player1):
 
         if player1.user_input == 'A':
             print(
-                player1.name, 'lose health, but gains insight to help in the upcoming battle again King Author')
+                player1.name, 'lose health, but gains insight to help in the upcoming battle again King Author. After careful study', player1.name, 'charges into battle with the King!' )
             change_health(-5)
             change_exp(5)
             print('After preparing themselves', player1.name,
