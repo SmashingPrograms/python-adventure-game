@@ -11,8 +11,8 @@ def level_3(player1):
     global limb_status
     limb_status = False
 
-    def change_health(num):  
-        player1.health += num
+    # def change_health(num):  
+    #     player1.health += num
 
     def change_bounty(bounty):  
         player1.bounty += bounty
@@ -120,7 +120,7 @@ def level_3(player1):
                 print(player1.name, 'yells out, and peaking over the top of the castle a group of french soliders appear, knowing who', player1.name, 'is they scream BE GOND THIEF!!. The french throw a dead cow over the wall and it lands next to',
                       player1.name, '!', player1.name, 'runs way from the french not wishing more cows!!!!!!', player1.name, 'finds that they are completely surroned by the bog found before and continue on through the dark, stinky waters\n')
                 player1.item.append('Cow')
-                change_health(world_items['Cow'])
+                player1.change_health(world_items['Cow'])
                 player1.user_input = 'B'
             else:
                 print(player1.name, 'yells out, and peaking over the top of the castle a group of french soliders appear. Not knowing who', player1.name, 'is they yell to continue on as visitors are not welcome here!! As',
@@ -139,7 +139,7 @@ def level_3(player1):
         if player1.user_input == 'A':
             print(
                 player1.name, 'lose health, but gains insight to help in the upcoming battle again King Author. After careful study', player1.name, 'charges into battle with the King!' )
-            change_health(-5)
+            player1.change_health(-5)
             change_exp(5)
             print('After preparing themselves', player1.name,
                   'charges at the King, ready for their fate!!')
@@ -215,7 +215,7 @@ def level_3(player1):
         player1.item.append('Grail')
         change_bounty(world_items['Grail'])
         change_exp(world_items['Grail'])
-        change_health(world_items['Grail'])
+        player1.change_health(world_items['Grail'])
 
         # End section
         print('As', player1.name,
@@ -228,7 +228,7 @@ def level_3(player1):
                 print('The police wish', player1.name,
                       'the best of luck on their journey, and give them their limbs lost in the great battle with the bunny to take for future adventures.', player1.name, 'goes off into the sunset')
                 player1.item.append('Limbs')
-                change_health(world_items['Limbs'])
+                player1.change_health(world_items['Limbs'])
                 change_exp(5)
             else:
                 print('The police wish', player1.name,

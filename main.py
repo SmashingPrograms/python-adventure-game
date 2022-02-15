@@ -17,6 +17,9 @@ class Player:
         self.name = name
         self.user_input = ''
 
+    def change_health(num):  
+        player1.health += num
+
 
 player_name = input('Welcome to our adventure game. Please enter a name for your character ')
 
