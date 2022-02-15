@@ -129,7 +129,7 @@ def level_5(player):
     else:
         print_options(**get_option('pull_ropes'))
         is_rope_tight = True
-    player.health -= 5
+    player.change_health(-5)
     continue_input()
 
     print_options(**get_option('bounty_reveal'))
@@ -137,10 +137,10 @@ def level_5(player):
 
     if player.user_choice == 'A':
         print_options(**get_option('bowser'))
-        player.exp -= 5
+        player.change_exp(-5)
     if player.user_choice == 'B':
         print_options(**get_option('mother'))
-        player.exp += 5
+        player.change_exp(5)
         guessed_mother = True
     continue_input()
 
