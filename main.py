@@ -20,6 +20,12 @@ class Player:
     def change_health(num):  
         player1.health += num
 
+    def change_bounty(bounty):  
+        player1.bounty += bounty
+
+    def change_exp(experience):  
+        player1.exp += experience
+
 
 player_name = input('Welcome to our adventure game. Please enter a name for your character ')
 
