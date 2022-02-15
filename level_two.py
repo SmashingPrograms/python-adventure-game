@@ -44,9 +44,9 @@ def level_2(player1):
                 user_input = input("Choose (A) to accept. Choose (B) to decline and attempt to mug Luigi").upper()
 
                 if user_input == 'A':
-                    print("You gain 5 coins but you lose 10exp for not attempting to steal")
+                    print("You gain 5 coins but you lose 5exp for not attempting to steal")
                     change_bounty(5)
-                    player1.exp -= 10
+                    player1.exp -= 5
 
                 elif user_input =='B':
                     if player1.exp > 50:
@@ -91,7 +91,7 @@ def level_2(player1):
                 else:
                     print("You fight off a few henchman but you find a treasure of 50 coins and a bannana. Donkey Kong shows you to a pipe to get you out of this wacky world. Bannana refills gealth by 5")
                     change_bounty(50)
-                    change_exp (30)
+                    change_exp (20)
                    
         
 
